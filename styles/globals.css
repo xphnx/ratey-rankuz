@@ -1,0 +1,33 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+
+	color: var(--gray40);
+	font-family: var(--font-family);
+
+	background-color: var(--dark20);
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+:root {
+	--whtie: #FFFFFF;
+	--gray40: #7E7E81;
+	--gray50: #666666;
+	--gray60: #98989A;
+	--dark20: #141414;
+	--dark10: #1A1A1A;
+	--dark00: #333333;
+	
+	--primary: #FFD11A;
+
+	--font-family: 'Bebas Neue', system-ui;
+}
