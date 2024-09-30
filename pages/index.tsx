@@ -23,8 +23,13 @@ export default function Home(): JSX.Element {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<main className={`${gilroyLight.variable} ${gilroySemiBold.variable}`}>
-				<Button appearance="primary">Button with some long text</Button>
-				<Button appearance="ghost">Button with some long text</Button>
+				<Button appearance="primary" withArray>
+					Button with some long text
+				</Button>
+				<Button appearance="ghost" withArray>
+					Button with some long text
+				</Button>
+				<Button appearance="primary-circle" />
 				<Heading level={3}>Heading</Heading>
 				<p>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt est eum mollitia quasi

@@ -7,8 +7,24 @@
 
     border-radius: 10px;
     cursor: pointer;
+}
 
-    transition: all 0.2s;
+.button,
+.button svg,
+.button:hover svg {
+    transition: transform 0.3s, fill 0.3s, background-color 0.3s, color 0.3s;
+}
+
+.button svg {    
+    fill: var(--dark20);
+}
+
+.button:hover svg {
+    transform: rotate(45deg) translate(3px, -1px);
+}
+
+.iconWrapper {
+    margin-left: 10px;
 }
 
 .ghost {
@@ -24,19 +40,31 @@
     background-color: var(--gray60);
 }
 
-.primary, .primaryRadius {
+.ghost svg {
+    fill: var(--gray60)
+}
+
+.ghost:hover svg {
+    fill: var(--white);
+}
+
+.primary, .primaryCircle {
     color: var(--dark20);
 
     background-color: var(--primary);
     border: none;
 }
 
-.primary:hover ,.primaryRadius:hover {
+.primary:hover ,.primaryCircle:hover {
     background-color: var(--primary-hover);
 }
 
-.primaryRadius {
+.primaryCircle {
     padding: 18px;
 
-    border-radius: 100%;
+    border-radius: 50%;
+}
+
+.primaryCircle svg {
+    display: block;
 }
