@@ -1,7 +1,7 @@
 html,
 body {
 	color: var(--gray40);
-	font-family: var(--font-family);
+	font-size: 18px;
 
 	background-color: var(--dark20);
 }
@@ -17,8 +17,12 @@ a {
 	padding: 0;
 }
 
+main {
+	font-family: var(--font-gilroy-light);
+}
+
 :root {
-	--whtie: #FFFFFF;
+	--white: #FFFFFF;
 	--gray40: #7E7E81;
 	--gray50: #666666;
 	--gray60: #98989A;
@@ -27,6 +31,5 @@ a {
 	--dark00: #333333;
 	
 	--primary: #FFD11A;
-
-	--font-family: 'Bebas Neue', system-ui;
+	--primary-hover: #fffc3c;
 }

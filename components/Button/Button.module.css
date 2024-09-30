@@ -1,0 +1,42 @@
+.button {
+    display: inline-block;
+    padding: 18px 24px;
+
+    font-size: inherit;
+    font-family: 'Bebas Neue', sans-serif;
+
+    border-radius: 10px;
+    cursor: pointer;
+
+    transition: all 0.2s;
+}
+
+.ghost {
+    color: var(--gray60);
+
+    background-color: transparent;
+    border: 1px solid var(--dark00);
+}
+
+.ghost:hover {
+    color: var(--white);
+
+    background-color: var(--gray60);
+}
+
+.primary, .primaryRadius {
+    color: var(--dark20);
+
+    background-color: var(--primary);
+    border: none;
+}
+
+.primary:hover ,.primaryRadius:hover {
+    background-color: var(--primary-hover);
+}
+
+.primaryRadius {
+    padding: 18px;
+
+    border-radius: 100%;
+}
