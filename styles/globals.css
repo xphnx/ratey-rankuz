@@ -1,8 +1,5 @@
 html,
 body {
-	margin: 0;
-	padding: 0;
-
 	color: var(--gray40);
 	font-family: var(--font-family);
 
@@ -16,6 +13,8 @@ a {
 
 * {
 	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 :root {
