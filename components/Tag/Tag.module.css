@@ -1,0 +1,28 @@
+.tag {
+    display: inline-flex;
+    align-items: center;
+
+    border: 1px solid var(--dark00);
+    border-radius: 100px;
+}
+
+.tag + .tag {
+    margin-left: 10px;
+}
+
+.tag svg {
+    margin-right: 8px;
+}
+
+.tag.l {
+    padding: 8px 16px;
+
+    font-size: 18px;
+}
+
+.tag.s {
+    padding: 6px 12px;
+
+    font-size: 14px;
+}
+

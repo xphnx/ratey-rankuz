@@ -1,6 +1,7 @@
 import localFont from 'next/font/local';
 import Head from 'next/head';
-import { Button, Heading } from '@/components';
+import { Button, Heading, Paragraph } from '@/components';
+import { Tag } from '@/components/Tag/Tag';
 
 const gilroyLight = localFont({
 	src: './fonts/Gilroy-Light.woff',
@@ -23,19 +24,37 @@ export default function Home(): JSX.Element {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<main className={`${gilroyLight.variable} ${gilroySemiBold.variable}`}>
-				<Button appearance="primary" withArray>
+				<Button appearance="primary" withArrow>
 					Button with some long text
 				</Button>
-				<Button appearance="ghost" withArray>
+				<Button appearance="ghost" withArrow>
 					Button with some long text
 				</Button>
-				<Button appearance="primary-circle" />
+				<Button appearance="primaryCircle" />
 				<Heading level={3}>Heading</Heading>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt est eum mollitia quasi
-					adipisci tenetur iure hic dolorem aspernatur? Tenetur dolores minus blanditiis expedita
-					earum fugit ab magnam, officiis repellat.
-				</p>
+				<Paragraph size="s">
+					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius, nostrum!
+				</Paragraph>
+				<Paragraph size="m">
+					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius, nostrum!
+				</Paragraph>
+				<Paragraph size="l">
+					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius, nostrum!
+				</Paragraph>
+				<Tag size="l" type="like">
+					Hello
+				</Tag>
+				<Tag size="l" type="comment">
+					Hello
+				</Tag>
+				<Tag size="l" type="repost">
+					Hello
+				</Tag>
+				<div>
+					<Tag size="s" type="like">
+						40.5k
+					</Tag>
+				</div>
 			</main>
 		</>
 	);
