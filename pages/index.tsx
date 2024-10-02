@@ -1,6 +1,7 @@
+import { useState } from 'react';
 import localFont from 'next/font/local';
 import Head from 'next/head';
-import { Button, Heading, Paragraph } from '@/components';
+import { Button, Heading, Paragraph, Rating } from '@/components';
 import { Tag } from '@/components/Tag/Tag';
 
 const gilroyLight = localFont({
@@ -15,6 +16,8 @@ const gilroySemiBold = localFont({
 });
 
 export default function Home(): JSX.Element {
+	const [rating, setRating] = useState(3);
+
 	return (
 		<>
 			<Head>
@@ -54,6 +57,9 @@ export default function Home(): JSX.Element {
 					<Tag size="s" type="like">
 						40.5k
 					</Tag>
+				</div>
+				<div>
+					<Rating rating={rating} setRating={setRating} isEditable />
 				</div>
 			</main>
 		</>

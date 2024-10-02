@@ -1,0 +1,23 @@
+.rating {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 8px 16px;
+
+    border: 1px solid var(--dark00);
+    border-radius: 100px;
+    cursor: pointer;
+}
+
+.rating svg + svg {
+    margin-left: 5px;
+}
+
+.filled {
+    fill: var(--primary-hover);
+    stroke: none;
+}
+
+.disabled {
+    cursor: auto;
+}
