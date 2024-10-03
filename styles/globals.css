@@ -17,7 +17,7 @@ a {
 	padding: 0;
 }
 
-main {
+main, header, footer, aside {
 	font-family: var(--font-gilroy-light);
 }
 
