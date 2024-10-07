@@ -3,6 +3,7 @@ import axios from 'axios';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import { MenuItem } from '@/interfaces/menu';
+import { withLayout } from '@/layout/Layout';
 
 interface HomeProps extends Record<string, unknown> {
 	menu: MenuItem[];
@@ -38,22 +39,18 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 	}
 };
 
-const Home: FC<HomeProps> = ({ menu }): JSX.Element => {
+const Home: FC<HomeProps> = (): JSX.Element => {
 	return (
 		<>
 			<Head>
-				<title>App</title>
+				<title>Main Page</title>
 				<meta name="description" content="Description" />
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<ul>
-				{menu.map((menuItem) => (
-					<li key={menuItem._id.secondCategory}>{menuItem._id.secondCategory}</li>
-				))}
-			</ul>
+			{'Home Page'}
 		</>
 	);
 };
 
-export default Home;
+export default withLayout(Home);

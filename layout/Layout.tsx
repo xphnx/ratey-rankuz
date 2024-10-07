@@ -1,5 +1,6 @@
 import { FC, FunctionComponent, HtmlHTMLAttributes, ReactNode } from 'react';
 import localFont from 'next/font/local';
+import { AppContext, AppContextProvider } from '@/context/appContext';
 import { Footer } from './Footer/Footer';
 import { Header } from './Header/Header';
 import { Sidebar } from './Sidebar/Sidebar';
@@ -20,7 +21,7 @@ interface LayoutProps extends HtmlHTMLAttributes<HTMLDivElement> {
 	children: ReactNode;
 }
 
-export const Layout: FC<LayoutProps> = ({ children }) => {
+const Layout: FC<LayoutProps> = ({ children }) => {
 	return (
 		<div className={`${gilroyLight.variable} ${gilroySemiBold.variable} ${styles.container}`}>
 			<Header className={styles.header} />
@@ -29,4 +30,22 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
 			<Footer className={styles.footer} />
 		</div>
 	);
+};
+
+export const withLayout = <T extends Record<string, unknown> & AppContext>(
+	Component: FunctionComponent<T>,
+) => {
+	return function withLayoutComponent(props: T): JSX.Element {
+		return (
+			<AppContextProvider
+				menu={props.menu}
+				firstCategory={props.firstCategory}
+				setMenu={props.setMenu}
+			>
+				<Layout>
+					<Component {...props} />
+				</Layout>
+			</AppContextProvider>
+		);
+	};
 };
