@@ -1,0 +1,14 @@
+.list {
+    padding: 20px 15px;
+    
+    list-style: none;
+}
+
+.link {
+    display: block;
+}
+
+.list li + li {
+    margin-top: 10px;
+}
+

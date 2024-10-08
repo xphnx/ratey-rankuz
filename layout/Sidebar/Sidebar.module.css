@@ -1,0 +1,13 @@
+.sidebar {
+    background: var(--dark10);
+    border-right: 1px solid var(--gray70);
+    
+}
+
+.sidebar a {
+    transition: color 1s;
+}
+
+.sidebar a:hover {
+    color: var(--primary);
+}

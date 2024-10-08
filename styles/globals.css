@@ -26,10 +26,12 @@ main, header, footer, aside {
 	--gray40: #7E7E81;
 	--gray50: #666666;
 	--gray60: #98989A;
+	--gray70: #262626;
 	--dark20: #141414;
 	--dark10: #1A1A1A;
 	--dark00: #333333;
 	
 	--primary: #FFD11A;
+	--primary-thin: rgb(255, 209, 26, 0.2);
 	--primary-hover: #fffc3c;
 }

@@ -6,6 +6,7 @@ import { ParsedUrlQuery } from 'querystring';
 import { MenuItem } from '@/interfaces/menu';
 import { Page } from '@/interfaces/page';
 import { Product } from '@/interfaces/product';
+import { withLayout } from '@/layout/Layout';
 
 const firstCategory = 0;
 
@@ -97,8 +98,8 @@ export const getStaticProps: GetStaticProps<CourseProps> = async ({
 	}
 };
 
-const Course: FC<CourseProps> = ({ menu, page, products }): JSX.Element => {
-	return <div></div>;
+const Course: FC<CourseProps> = ({ page }): JSX.Element => {
+	return <div>{page.title}</div>;
 };
 
-export default Course;
+export default withLayout(Course);

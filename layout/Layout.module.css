@@ -5,7 +5,7 @@
         '. sidebar main .'
         'footer footer footer footer';
     grid-template-rows: auto 1fr auto;
-    grid-template-columns: auto minmax(150px, 250px) minmax(320px, 1920px) auto;
+    grid-template-columns: auto minmax(150px, 320px) minmax(320px, 1920px) auto;
     
     min-height: 100vh;
 }
