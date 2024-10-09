@@ -8,16 +8,16 @@
     display: flex;
     align-items: center;
 
-}
-
-.link.active {
     padding: 14px 24px 14px 10px;
-    
-    color: var(--primary);
 
     background: var(--dark20);
     border: 1px solid var(--dark00);
     border-radius: 10px;
+}
+
+.link.active,
+.link:hover {
+    color: var(--primary);
 }
 
 .list li + li {
@@ -26,5 +26,7 @@
 
 .list svg {
     margin-right: 8px;
+
+    stroke: var(--primary);
 }
 

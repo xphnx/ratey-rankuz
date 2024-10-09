@@ -1,52 +1,23 @@
 import { FC, useContext } from 'react';
 import cn from 'classnames';
-import { Bolt, Book, PackageSearch, SquareLibrary } from 'lucide-react';
-import { Button } from '@/components';
+import Link from 'next/link';
 import { AppContext } from '@/context/appContext';
-import { FirstLevelMenu } from '@/interfaces/menu';
-import { TopLevelCategory } from '@/interfaces/page';
+import { firstLevelMenu } from '@/helpers/routes';
 import { SecondLevel } from './SecondLevel/SecondLevel';
 import styles from './Menu.module.css';
-
-const firstLevelMenu: FirstLevelMenu[] = [
-	{
-		route: 'courses',
-		name: 'Курсы',
-		icon: <SquareLibrary size={20} strokeWidth={1} />,
-		category: TopLevelCategory.Courses,
-	},
-	{
-		route: 'services',
-		name: 'Сервис',
-		icon: <Bolt size={20} strokeWidth={1} />,
-		category: TopLevelCategory.Services,
-	},
-	{
-		route: 'Книги',
-		name: 'Books',
-		icon: <Book size={20} strokeWidth={1} />,
-		category: TopLevelCategory.Books,
-	},
-	{
-		route: 'products',
-		name: 'Продукты',
-		icon: <PackageSearch size={20} strokeWidth={1} />,
-		category: TopLevelCategory.Products,
-	},
-];
 
 interface MenuProps {
 	className?: string;
 }
 
 export const Menu: FC<MenuProps> = ({ className }) => {
-	const { menu, firstCategory } = useContext(AppContext);
+	const { firstCategory } = useContext(AppContext);
 
 	return (
 		<ul className={cn(styles.list, className)}>
-			{firstLevelMenu.map((menuItem) => (
+			{firstLevelMenu?.map((menuItem) => (
 				<li key={menuItem.route}>
-					<a
+					<Link
 						href={`/${menuItem.route}`}
 						className={cn(styles.link, {
 							[styles.active]: menuItem.category === firstCategory,
@@ -54,10 +25,9 @@ export const Menu: FC<MenuProps> = ({ className }) => {
 					>
 						{menuItem.icon}
 						{menuItem.name}
-					</a>
-					{menuItem.category === firstCategory && (
-						<SecondLevel menu={menu} categoryRoute={menuItem.route} />
-					)}
+					</Link>
+
+					{menuItem.category === firstCategory && <SecondLevel categoryRoute={menuItem.route} />}
 				</li>
 			))}
 		</ul>

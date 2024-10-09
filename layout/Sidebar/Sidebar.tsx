@@ -1,4 +1,4 @@
-import { FC, HtmlHTMLAttributes, ReactNode } from 'react';
+import { FC, HtmlHTMLAttributes } from 'react';
 import cn from 'classnames';
 import { Menu } from '../Menu/Menu';
 import styles from './Sidebar.module.css';

@@ -11,14 +11,29 @@
     display: block;
 
     color: var(--primary-thin);
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: 3.5px;
     text-transform: uppercase;
 
     cursor: pointer;
 }
 
-.list li + li {
-    margin-top: 10px;
+.second-level-li + .second-level-li {
+    margin-top: 15px;
+}
+
+.third-level {
+    max-height: 0;
+    overflow: hidden;
+    
+    opacity: 0;
+
+    transition: max-height 1s ease-in-out, opacity 1s ease-in-out;
+}
+
+.third-level-opened {
+    max-height: 1000px;
+    
+    opacity: 1;
 }
 

@@ -1,14 +1,11 @@
 import { FC } from 'react';
 import axios from 'axios';
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
-import { notFound } from 'next/navigation';
 import { ParsedUrlQuery } from 'querystring';
+import { firstLevelMenu } from '@/helpers/routes';
 import { MenuItem } from '@/interfaces/menu';
 import { Page } from '@/interfaces/page';
 import { Product } from '@/interfaces/product';
-import { withLayout } from '@/layout/Layout';
-
-const firstCategory = 0;
 
 interface CourseProps extends Record<string, unknown> {
 	menu: MenuItem[];
@@ -19,16 +16,22 @@ interface CourseProps extends Record<string, unknown> {
 
 export const getStaticPaths: GetStaticPaths = async () => {
 	try {
-		const { data: menu } = await axios.post<MenuItem[]>(
-			process.env?.NEXT_PUBLIC_DOMAIN + '/api/top-page/find',
-			{
-				firstCategory,
-			},
-		);
+		let paths: string[] = [];
 
-		const paths = menu.flatMap((secondCategory) =>
-			secondCategory.pages.map((page) => `/courses/${page.alias}`),
-		);
+		for (const menuItem of firstLevelMenu) {
+			const { data: menu } = await axios.post<MenuItem[]>(
+				process.env?.NEXT_PUBLIC_DOMAIN + '/api/top-page/find',
+				{
+					firstCategory: menuItem.category,
+				},
+			);
+
+			paths = paths.concat(
+				menu.flatMap((secondCategory) =>
+					secondCategory.pages.map((page) => `/${menuItem.route}/${page.alias}`),
+				),
+			);
+		}
 
 		return {
 			paths,
@@ -52,6 +55,14 @@ export const getStaticProps: GetStaticProps<CourseProps> = async ({
 	params,
 }: GetStaticPropsContext<ParsedUrlQuery>) => {
 	if (!params) {
+		return {
+			notFound: true,
+		};
+	}
+
+	const firstCategory = firstLevelMenu.find((menu) => menu.route == params.type)?.category;
+
+	if (!firstCategory && typeof firstCategory !== 'number') {
 		return {
 			notFound: true,
 		};
@@ -99,7 +110,7 @@ export const getStaticProps: GetStaticProps<CourseProps> = async ({
 };
 
 const Course: FC<CourseProps> = ({ page }): JSX.Element => {
-	return <div>{page.title}</div>;
+	return <div>{page?.title || 'Not found'}</div>;
 };
 
-export default withLayout(Course);
+export default Course;

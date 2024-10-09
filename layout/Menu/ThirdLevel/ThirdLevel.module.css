@@ -1,5 +1,5 @@
 .list {
-    padding: 20px 15px;
+    padding: 20px 15px 5px;
     
     list-style: none;
 }
@@ -8,7 +8,21 @@
     display: block;
 }
 
-.list li + li {
-    margin-top: 10px;
+.link.active {
+    color: var(--primary);
 }
 
+.third-level {
+    max-height: 0;
+    overflow: hidden;
+    
+    opacity: 0;
+
+    transition: max-height 2s ease, opacity 2s ease;
+}
+
+.third-level-opened {
+    max-height: 1000px;
+    
+    opacity: 1;
+}
