@@ -1,7 +1,7 @@
 import { FC, useContext } from 'react';
 import cn from 'classnames';
 import { useRouter } from 'next/router';
-import { AppContext } from '@/context/appContext';
+import { MenuContext } from '@/context/menuContext';
 import { Page } from '@/interfaces/page';
 import { ThirdLevel } from '../ThirdLevel/ThirdLevel';
 import styles from './SecondLevel.module.css';
@@ -12,7 +12,7 @@ interface SecondLevelProps {
 }
 
 export const SecondLevel: FC<SecondLevelProps> = ({ categoryRoute, className }) => {
-	const { menu, setMenu } = useContext(AppContext);
+	const { menu, setMenu } = useContext(MenuContext);
 	const router = useRouter();
 
 	const isOpen = (pages: Page[]): boolean => {

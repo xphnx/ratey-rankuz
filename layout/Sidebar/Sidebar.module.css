@@ -11,3 +11,28 @@
 .sidebar a:hover {
     color: var(--primary);
 }
+
+.logo a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px 15px 0px;
+
+    font-weight: 900;
+}
+
+.logo svg {
+    margin-right: 10px;
+
+    transition: fill 1s ease-in-out, transform 3s;
+
+    fill: var(--primary);
+}
+
+.logo:hover svg {
+    transform: rotate(360deg);
+    transform-origin: 50% 50%;
+
+    fill: #ffff;
+}

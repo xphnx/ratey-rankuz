@@ -1,7 +1,6 @@
-import { FC, FunctionComponent, HtmlHTMLAttributes, ReactNode } from 'react';
+import { FC, HtmlHTMLAttributes, ReactNode } from 'react';
 import localFont from 'next/font/local';
-import { useRouter } from 'next/router';
-import { AppContext, AppContextProvider } from '@/context/appContext';
+import { MenuItem } from '@/interfaces/menu';
 import { Footer } from './Footer/Footer';
 import { Header } from './Header/Header';
 import { Sidebar } from './Sidebar/Sidebar';
@@ -20,13 +19,16 @@ const gilroySemiBold = localFont({
 
 interface LayoutProps extends HtmlHTMLAttributes<HTMLDivElement> {
 	children: ReactNode;
+	menu: MenuItem[];
+	firstCategory: number;
+	setMenu?: (menu: MenuItem[]) => void;
 }
 
-export const Layout: FC<LayoutProps> = ({ children }) => {
+export const Layout: FC<LayoutProps> = ({ children, ...pageProps }) => {
 	return (
 		<div className={`${gilroyLight.variable} ${gilroySemiBold.variable} ${styles.container}`}>
 			<Header className={styles.header} />
-			<Sidebar className={styles.sidebar} />
+			<Sidebar {...pageProps} className={styles.sidebar} />
 			<main className={styles.main}>{children}</main>
 			<Footer className={styles.footer} />
 		</div>

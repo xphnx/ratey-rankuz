@@ -1,7 +1,7 @@
 import { FC, useContext } from 'react';
 import cn from 'classnames';
 import Link from 'next/link';
-import { AppContext } from '@/context/appContext';
+import { MenuContext } from '@/context/menuContext';
 import { firstLevelMenu } from '@/helpers/routes';
 import { SecondLevel } from './SecondLevel/SecondLevel';
 import styles from './Menu.module.css';
@@ -11,7 +11,7 @@ interface MenuProps {
 }
 
 export const Menu: FC<MenuProps> = ({ className }) => {
-	const { firstCategory } = useContext(AppContext);
+	const { firstCategory } = useContext(MenuContext);
 
 	return (
 		<ul className={cn(styles.list, className)}>

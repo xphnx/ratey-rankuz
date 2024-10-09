@@ -12,6 +12,8 @@
 
     color: var(--primary-thin);
     font-weight: 400;
+    font-size: 16px;
+
     letter-spacing: 3.5px;
     text-transform: uppercase;
 
